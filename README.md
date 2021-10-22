@@ -8,7 +8,7 @@
 
 Inspired from `IPSO` (*now part of OMA SpecWorks*), `Smart Object`s are are meant to encapsulate capabilities of intelligent products in the field of IoT, but not only.
 
-![uncached image](https://www.plantuml.com/plantuml/proxy?cache=no&src=http://www.plantuml.com/plantuml/proxy?src=https://raw.github.com/snakebyte3d/smart_object/master/doc/uml/class_all.puml)
+![uncached image](https://www.plantuml.com/plantuml/proxy?cache=no&src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/snakebyte3d/smart_object/master/doc/uml/class_all.puml)
 
 # Contribution guidelines
 
