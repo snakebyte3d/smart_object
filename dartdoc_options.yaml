@@ -1,0 +1,16 @@
+dartdoc:
+  categories:
+    "Design overview":
+      markdown: doc/DESIGN.md
+    "Contribution guidelines":
+      markdown: doc/CONTRIBUTE.md
+  categoryOrder: ["Design overview", "Contribution guidelines"]
+  examplePathPrefix: 'examples'
+  nodoc: ['lib/**/*.freezed.dart', 'lib/**/*.g.dart', 'lib/**/*.part.dart']
+  showUndocumentedCategories: true
+  ignore:
+    - ambiguous-doc-reference
+  errors:
+    - unresolved-doc-reference
+  warnings:
+    - tool-error

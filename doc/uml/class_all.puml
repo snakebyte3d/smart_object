@@ -1,0 +1,305 @@
+@startuml class_all
+set namespaceSeparator ::
+
+class "smart_object::smart_object_registry.dart::AccessMode" {
+  +int index
+  {static} +List<AccessMode> values
+  {static} +AccessMode N
+  {static} +AccessMode R
+  {static} +AccessMode E
+  {static} +AccessMode RW
+  {static} +AccessMode W
+}
+
+"smart_object::smart_object_registry.dart::AccessMode" o-- "smart_object::smart_object_registry.dart::AccessMode"
+
+class "smart_object::smart_object_registry.dart::ValueType" {
+  +int index
+  {static} +List<ValueType> values
+  {static} +ValueType FLOAT
+  {static} +ValueType OPAQUE
+  {static} +ValueType STRING
+  {static} +ValueType INTEGER
+  {static} +ValueType BOOLEAN
+  {static} +ValueType EXECUTE
+  {static} +ValueType TIME
+}
+
+"smart_object::smart_object_registry.dart::ValueType" o-- "smart_object::smart_object_registry.dart::ValueType"
+
+class "smart_object::smart_object_registry.dart::SmartObjectRegistry" {
+}
+
+class "smart_object::urn.dart::Urn" {
+}
+
+class "smart_object::types.dart::FieldMask" {
+}
+
+class "smart_object::types.dart::MeasurementUnit" {
+}
+
+class "smart_object::types.dart::ObjectLink" {
+  +String toString()
+}
+
+class "smart_object::types.dart::ResourceLink" {
+}
+
+class "smart_object::types.dart::Value" {
+  +bool isOfType()
+}
+
+abstract class "smart_object::types.dart::ObjectLinkRoot" {
+}
+
+abstract class "smart_object::types.dart::ObjectLinkSingle" {
+  +int single
+}
+
+abstract class "smart_object::types.dart::ObjectLinkTuple" {
+  +Tuple2<int, int> tuple
+}
+
+"smart_object::types.dart::ObjectLinkTuple" o-- "tuple::tuple.dart::Tuple2<int, int>"
+
+abstract class "smart_object::types.dart::ResourceLinkSingle" {
+  +int rid
+}
+
+"smart_object::types.dart::ResourceLink" <|-- "smart_object::types.dart::ResourceLinkSingle"
+
+abstract class "smart_object::types.dart::ResourceLinkMultiple" {
+  +int rid
+  +int riid
+}
+
+"smart_object::types.dart::ResourceLink" <|-- "smart_object::types.dart::ResourceLinkMultiple"
+
+abstract class "smart_object::types.dart::InvalidValue" {
+  +Object? value
+}
+
+abstract class "smart_object::types.dart::IntValue" {
+  +int value
+}
+
+abstract class "smart_object::types.dart::BoolValue" {
+  +bool value
+}
+
+abstract class "smart_object::types.dart::StringValue" {
+  +String value
+}
+
+abstract class "smart_object::types.dart::ArrayValue" {
+  +List<dynamic> value
+}
+
+abstract class "smart_object::types.dart::FloatValue" {
+  +double value
+}
+
+abstract class "smart_object::types.dart::OpaqueValue" {
+  +Object value
+}
+
+abstract class "smart_object::types.dart::TimeValue" {
+  +DateTime value
+}
+
+abstract class "smart_object::types.dart::ExecuteValue" {
+  +Object? value
+}
+
+abstract class "smart_object::types.dart::LinkValue" {
+  +ObjectLink value
+}
+
+"smart_object::types.dart::LinkValue" o-- "smart_object::types.dart::ObjectLink"
+
+class "smart_object::error.dart::NotFoundError" {
+}
+
+class "smart_object::error.dart::ValueError" {
+}
+
+class "smart_object::error.dart::ResourceNotInitializedError" {
+}
+
+class "smart_object::error.dart::RegistryEntryNotFound" {
+}
+
+class "smart_object::error.dart::ObjectLinkFormatError" {
+}
+
+class "smart_object::error.dart::ValueTypeError" {
+}
+
+abstract class "smart_object::src::handler.dart::ExecuteHandler" {
+  +Future<void> execute()
+}
+
+"smart_object::src::handler.dart::Handler" <|-- "smart_object::src::handler.dart::ExecuteHandler"
+
+abstract class "smart_object::src::handler.dart::WriteHandler" {
+  +Future<void> write()
+}
+
+"smart_object::src::handler.dart::Handler" <|-- "smart_object::src::handler.dart::WriteHandler"
+
+abstract class "smart_object::src::handler.dart::ReadHandler" {
+  +Future<Value> read()
+}
+
+"smart_object::src::handler.dart::Handler" <|-- "smart_object::src::handler.dart::ReadHandler"
+
+abstract class "smart_object::src::handler.dart::CreateHandler" {
+  +Future<void> create()
+}
+
+"smart_object::src::handler.dart::Handler" <|-- "smart_object::src::handler.dart::CreateHandler"
+
+abstract class "smart_object::src::handler.dart::DeleteHandler" {
+  +Future<void> delete()
+}
+
+"smart_object::src::handler.dart::Handler" <|-- "smart_object::src::handler.dart::DeleteHandler"
+
+abstract class "smart_object::src::handler.dart::Handler" {
+}
+
+class "smart_object::src::trustee.dart::Trustee" {
+  +Value get()
+}
+
+class "smart_object::src::trustee.dart::TrusteeCreator" {
+  +SmartObject create()
+}
+
+class "smart_object::src::lwm2m_repr.dart::SenMLRepr" {
+}
+
+class "smart_object::src::lwm2m_repr.dart::LinkRepr" {
+}
+
+class "smart_object::src::object.dart::BaseObject" {
+  +Map<String, dynamic> attributes
+}
+
+class "smart_object::src::object.dart::RootObject" {
+}
+
+abstract class "smart_object::src::object.dart::SmartObject" {
+  +int oid
+  +int iid
+  +void addResource()
+  +Value get()
+}
+
+abstract class "smart_object::src::object.dart::SmartObjectCreator" {
+  +Host host
+  +Target? target
+  +SmartObject create()
+}
+
+"smart_object::src::object.dart::SmartObjectCreator" o-- "smart_object::src::host.dart::Host"
+"smart_object::src::object.dart::SmartObjectCreator" o-- "smart_object::src::target.dart::Target"
+
+class "smart_object::src::resource.dart::Resource" {
+  +Map<String, dynamic> attributes
+  +Stream<Value> stream
+  +Future<Value> value
+  +bool hasValue
+  +Future<Value> getValue()
+  +Future<void> setValue()
+  +void dispose()
+}
+
+"smart_object::src::resource.dart::Resource" o-- "dart::async::Stream<Value>"
+
+class "smart_object::src::directory.dart::Directory" {
+  +Future<bool> initialized
+  +SmartObjectRegistry registry
+  {static} +Directory instance
+  +Set<int> capabilities
+  +bool has()
+  +List<LinkRepr> discover()
+  +Future<SmartObject> create()
+  +RootObject root()
+  +SmartObject object()
+  +String fixture()
+  +int nextAvailableIid()
+}
+
+"smart_object::src::directory.dart::Directory" o-- "smart_object::smart_object_registry.dart::SmartObjectRegistry"
+"smart_object::src::directory.dart::Directory" o-- "smart_object::src::directory.dart::Directory"
+
+class "smart_object::src::acl.dart::AccessControlList" {
+  +Value get()
+}
+
+class "smart_object::src::security.dart::Security" {
+  +Value get()
+}
+
+class "smart_object::src::security.dart::SecurityCreator" {
+  +SmartObject create()
+}
+
+class "smart_object::src::capability_management.dart::CapabilityManagement" {
+  +Value get()
+}
+
+abstract class "smart_object::src::host.dart::Host" {
+  +List<LinkRepr> discover()
+}
+
+class "smart_object::src::host.dart::ServerHost" {
+  +List<LinkRepr> discover()
+}
+
+class "smart_object::src::host.dart::MobileHost" {
+  +List<LinkRepr> discover()
+}
+
+class "smart_object::src::user_interaction.dart::Display" {
+}
+
+class "smart_object::src::user_interaction.dart::Confirmation" {
+}
+
+class "smart_object::src::user_interaction.dart::UserInput" {
+}
+
+class "smart_object::src::user_interaction.dart::UserChoice" {
+}
+
+class "smart_object::src::user_interaction.dart::ProgressNotification" {
+}
+
+class "smart_object::src::target.dart::TargetType" {
+  +int index
+  {static} +List<TargetType> values
+  {static} +TargetType NONE
+  {static} +TargetType MOBILE
+  {static} +TargetType SERVER
+}
+
+"smart_object::src::target.dart::TargetType" o-- "smart_object::src::target.dart::TargetType"
+
+class "smart_object::src::target.dart::TransportBinding" {
+  +int index
+  {static} +List<TransportBinding> values
+  {static} +TransportBinding NONE
+  {static} +TransportBinding HTTP_1
+  {static} +TransportBinding HTTP_2
+}
+
+"smart_object::src::target.dart::TransportBinding" o-- "smart_object::src::target.dart::TransportBinding"
+
+class "smart_object::src::target.dart::Target" {
+}
+
+
+@enduml

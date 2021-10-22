@@ -1,0 +1,44 @@
+@startyaml SmartCar
+name: Vehicle
+version: "1.0.0"
+type: enum
+- motocycle
+- automobile
+- truck
+- bus
+- trailer
+category:
+- A
+- A.1
+- A.2
+- B
+- C
+- C.1
+- C.2
+- D
+- E
+engine: 
+    horsePower: 200
+    type: Diesel
+    hostStart: true
+interior:
+    seatConfig:
+        material: "textile"
+    seats:
+    -
+        id: driver
+        position: "FL"
+        heated: true
+    - 
+        id: passenger
+        position: "FR"
+        heated: true
+    infotainment: 
+        os: "Android Automotive"
+        version: "11"
+        factoryReset: null
+    instrumentCluster: 
+        os: "Fuchsia"
+        version: "1.0"
+        factoryReset: null
+@endyaml
