@@ -38,7 +38,7 @@ extension ObjectExtension on String {
     if (this[0].isRoot && this.length > 1) {
       return this.substring(1);
     }
-    
+
     return this;
   }
 }
@@ -203,6 +203,7 @@ ObjectLink objectLinkFromJson(Map<String, dynamic> json) {
   if (json.isEmpty || json['lnk'] == null || json['lnk'] is! String) {
     throw ValueError();
   }
+
   return ObjectLink.fromString('${json['lnk']!}');
 }
 

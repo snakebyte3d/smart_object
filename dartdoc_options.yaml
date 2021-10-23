@@ -3,9 +3,9 @@ dartdoc:
     "Design overview":
       markdown: doc/DESIGN.md
     "Contribution guidelines":
-      markdown: doc/CONTRIBUTE.md
+      markdown: doc/CONTRIBUTING.md
   categoryOrder: ["Design overview", "Contribution guidelines"]
-  examplePathPrefix: 'examples'
+  examplePathPrefix: 'example'
   nodoc: ['lib/**/*.freezed.dart', 'lib/**/*.g.dart', 'lib/**/*.part.dart']
   showUndocumentedCategories: true
   ignore:

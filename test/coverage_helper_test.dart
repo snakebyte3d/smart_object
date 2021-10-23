@@ -1,5 +1,5 @@
-// Helper file to make coverage work for all *.dart files.\n
-// Generated file. Do not modify by hand. Use . gen_cov.sh [--show]\n
+// Helper file to make coverage work for all *.dart files.
+// Generated file. Do not modify by hand. Use . gen_cov.sh [--show]
 // ignore_for_file: unused_import, directives_ordering
 import 'package:smart_object/smart_object_registry.dart';
 import 'package:smart_object/urn.dart';
@@ -24,4 +24,5 @@ import 'package:smart_object/src/capability_management.dart';
 import 'package:smart_object/src/host.dart';
 import 'package:smart_object/src/user_interaction.dart';
 import 'package:smart_object/src/target.dart';
-void main(){}
+
+void main() {}

@@ -1,10 +1,10 @@
 # smart_object
 
-[![github workflow](https://github.com/snakebyte3d/smart_object/actions/workflows/dart.yml/badge.svg)]
+![github workflow](https://github.com/snakebyte3d/smart_object/actions/workflows/dart.yml/badge.svg)
 [![codecov](https://codecov.io/gh/snakebyte3d/smart_object/branch/master/graph/badge.svg?token=TAVGX5YIT8)](https://codecov.io/gh/snakebyte3d/smart_object)
 [![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 <a href="https://opensource.org/licenses/Apache2.0"><img src="https://img.shields.io/badge/license-Apache2.0-purple.svg" alt="License: Apache2.0"></a>
-[![pub package](https://img.shields.io/static/v1?label=pub&message=0.1.0&color=blue)](https://pub.dartlang.org/packages/smart_object)
+[![pub package](https://img.shields.io/pub/v/smart_object?color=blue)](https://pub.dartlang.org/packages/smart_object)
 
 Inspired from `IPSO` (*now part of OMA SpecWorks*), `Smart Object`s are are meant to encapsulate capabilities of intelligent products in the field of IoT, but not only.
 
@@ -46,4 +46,11 @@ All tests must pass, including the new ones for the PR and existing ones
 Maintain or improve coverage when submitting PRs
 ```bash
 . gen_cov.sh --show
+```
+
+## Commit
+A commit that bump the version of the library can be done with `pubver`
+Install `pubspec_version` with `pub global activate pubspec_version` then commit
+```bash
+git commit -m "... Release $(pubver bump breaking|minor|patch|build)"
 ```
