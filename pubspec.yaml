@@ -1,14 +1,10 @@
 name: smart_object
-version: 0.1.0
-description: |
-  Exposes capabilities supported by intelligent products to be used by different services. 
-  Inspired from OMA IPSO.
+version: 0.1.1
+description: Exposes capabilities supported by intelligent products to be used by different services. \nInspired from OMA IPSO.\n
 repository: https://github.com/snakebyte3d/smart_object
-
-environment:
+environment: 
   sdk: '>=2.14.2 <3.0.0'
-
-dependencies:
+dependencies: 
   dcdg: ^4.0.0
   freezed_annotation: ^0.15.0
   grpc: ^3.0.2
@@ -19,11 +15,9 @@ dependencies:
   rxdart: ^0.27.2
   test: ^1.18.0
   tuple: ^2.0.0
-
-dev_dependencies:
+dev_dependencies: 
   analyzer: ^2.7.0
   build_runner: ^2.1.2
   dart_code_metrics: ^4.4.0
   freezed: ^0.15.0+1
   lint: ^1.7.2
-  
