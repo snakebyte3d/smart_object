@@ -17,11 +17,23 @@ jobs:
       - name: Install dependencies
         run: dart pub get
 
-      - name: Verify formatting
-        run: dart format --output=none --set-exit-if-changed .
+      - name: Activate coverage
+        run: pub global activate coverage
 
-      - name: Analyze project source
-        run: dart analyze
-
+      - name: Install lcov
+        run: sudo apt-get install -y lcov
+        
       - name: Run tests
-        run: dart test
+        run: pub run test --coverage="metrics/coverage"
+        
+      - name: Summarize coverage info
+        run: pub global run coverage:format_coverage --lcov --in=metrics/coverage --out=metrics/coverage/lcov.info --packages=.packages --report-on=lib
+        
+      - name: Remove generated files from code coverage summary
+        run: lcov --remove metrics/coverage/lcov.info '**/lib/**.freezed.dart' '**/lib/**.g.dart' '**/lib/**.part.dart' '**lib/gen/**.dart' -o metrics/coverage/lcov.info
+        
+      - name: Upload coverage info to codecov.io
+        uses: codecov/codecov-action@v1.2.1 
+        with:
+          file: metrics/coverage/lcov.info
+          token: "${{ secrets.CODECOV_TOKEN }}"
