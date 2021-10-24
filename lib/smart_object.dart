@@ -6,8 +6,5 @@
 /// ```
 ///
 
-export 'src/host.dart';
-export 'src/object.dart';
-export 'src/target.dart';
-export 'types.dart';
-export 'urn.dart';
+export 'src/obj/obj.dart';
+export 'src/platform/platform.dart';

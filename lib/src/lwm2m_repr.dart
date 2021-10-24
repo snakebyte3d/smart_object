@@ -1,7 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smart_object/error.dart';
+import 'package:smart_object/src/platform/error.dart';
 
 part 'lwm2m_repr.freezed.dart';
 part 'lwm2m_repr.g.dart';

@@ -1,5 +1,4 @@
-import 'package:smart_object/src/resource.dart';
-import 'package:smart_object/types.dart';
+import 'package:smart_object/smart_object.dart';
 
 class ValueGenerator {
   final Resource _res;

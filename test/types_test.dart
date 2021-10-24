@@ -1,4 +1,4 @@
-import 'package:smart_object/types.dart';
+import 'package:smart_object/smart_object.dart';
 import 'package:test/test.dart';
 
 void main() {
